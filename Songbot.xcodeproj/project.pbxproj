@@ -12,6 +12,7 @@
 		04BE53EC1F5B707F0062EDEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04BE53EA1F5B707F0062EDEB /* Main.storyboard */; };
 		04BE53EE1F5B707F0062EDEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04BE53ED1F5B707F0062EDEB /* Assets.xcassets */; };
 		04BE53F11F5B707F0062EDEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04BE53EF1F5B707F0062EDEB /* LaunchScreen.storyboard */; };
+		8D17CEED174C902FD9D029EF /* Pods_Songbot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8122F51F8883CC3481383E /* Pods_Songbot.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		04BE53ED1F5B707F0062EDEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04BE53F01F5B707F0062EDEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04BE53F21F5B707F0062EDEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D8122F51F8883CC3481383E /* Pods_Songbot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Songbot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D80B53B20BED08DDE3474DF8 /* Pods-Songbot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Songbot.release.xcconfig"; path = "Pods/Target Support Files/Pods-Songbot/Pods-Songbot.release.xcconfig"; sourceTree = "<group>"; };
+		E13554DAD6191634BC389927 /* Pods-Songbot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Songbot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Songbot/Pods-Songbot.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D17CEED174C902FD9D029EF /* Pods_Songbot.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				04BE53E51F5B707F0062EDEB /* Songbot */,
 				04BE53E41F5B707F0062EDEB /* Products */,
+				D0F472A6BA993CA4B9762DBC /* Pods */,
+				4BE4566260426A50B4B064ED /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,23 @@
 			path = Songbot;
 			sourceTree = "<group>";
 		};
+		4BE4566260426A50B4B064ED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3D8122F51F8883CC3481383E /* Pods_Songbot.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D0F472A6BA993CA4B9762DBC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E13554DAD6191634BC389927 /* Pods-Songbot.debug.xcconfig */,
+				D80B53B20BED08DDE3474DF8 /* Pods-Songbot.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04BE53F51F5B707F0062EDEB /* Build configuration list for PBXNativeTarget "Songbot" */;
 			buildPhases = (
+				AE2AA1932B044D7EF16EA48A /* [CP] Check Pods Manifest.lock */,
 				04BE53DF1F5B707F0062EDEB /* Sources */,
 				04BE53E01F5B707F0062EDEB /* Frameworks */,
 				04BE53E11F5B707F0062EDEB /* Resources */,
+				9327EDF0B0F0949336A03DE7 /* [CP] Embed Pods Frameworks */,
+				1D1D3C39FF3DFBD9C2882921 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,6 +158,68 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1D1D3C39FF3DFBD9C2882921 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Songbot/Pods-Songbot-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9327EDF0B0F0949336A03DE7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Songbot/Pods-Songbot-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ApiAI/ApiAI.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ApiAI.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Songbot/Pods-Songbot-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AE2AA1932B044D7EF16EA48A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Songbot-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		04BE53DF1F5B707F0062EDEB /* Sources */ = {
@@ -261,6 +350,7 @@
 		};
 		04BE53F61F5B707F0062EDEB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E13554DAD6191634BC389927 /* Pods-Songbot.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4D5NWSFDJ2;
@@ -274,6 +364,7 @@
 		};
 		04BE53F71F5B707F0062EDEB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D80B53B20BED08DDE3474DF8 /* Pods-Songbot.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4D5NWSFDJ2;
