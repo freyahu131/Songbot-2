@@ -14,12 +14,14 @@ import ApiAI
 struct User{
     let id: String
     let name: String
-    
+ 
 }
 
-class ViewCOntroller: JSQMessagesViewController {
+
+class ViewController: JSQMessagesViewController {
     
     var messages = [JSQMessage] ()
+    
     
     let user1 = User (id : "1", name: "Vince")
     let user2 = User (id: "2", name : "bot")
@@ -27,14 +29,17 @@ class ViewCOntroller: JSQMessagesViewController {
     var currentUser: User {
         return user1
     }
-
-
-class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-
-
 }
+
+
+extension ViewController {
+    
+    override func viewDidLoad () {
+        super.viewDidLoad ()
+        
+        self.senderId = currentUser.id
+        self.senderDisplayName = currentUser.name
+    }
+}
+
 
