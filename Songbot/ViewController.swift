@@ -41,5 +41,18 @@ extension ViewController {
         self.senderDisplayName = currentUser.name
     }
 }
-
+extension ViewController {
+    
+  override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
+}
+    
+   override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAt indexPath: IndexPath!)-> NSAttributedString! {
+        
+        let message = messages [indexPath.row]
+        let messageUserName = message.senderDisplayName
+        return NSAttributedString(string: messageUserName!)
+        
+    }
+    
+}
 
