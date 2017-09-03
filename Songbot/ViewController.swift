@@ -53,10 +53,24 @@ extension ViewController {
         return NSAttributedString(string: messageUserName!)
     }
     
-    func collectionView(_ collectionView: JSQMessagesViewController, layout collectionCiewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAt indexPath: IndexPath!)-> CGFloat {
-        
+     func collectionView(_ collectionView: JSQMessagesViewController,layout collectionCiewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAt indexPath: IndexPath!)-> CGFloat {
         return 15
-        
     }
-}
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!,avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource!{
+    return nil
+    }
+     func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!)-> JSQMessageAvatarImageDataSource!{
+      
+        let bubbleFactory = JSQMessagesBubbleImageFactory()
+        let message = messages [indexPath.row]
+        if currentUser.id == message.senderId {
+            return bubbleFactory?.outgoingMessagesBubbleImage(with: .green) as! JSQMessageAvatarImageDataSource
+        } else {
+            return bubbleFactory?.incomingMessagesBubbleImage(with: .blue) as! JSQMessageAvatarImageDataSource
+        }
+        }
+    override func collection(_ collectionView: UIControllerView, numberOfItemSection sectioni: Int)-> Int {
+          return message.count
+    }
+         }
 
