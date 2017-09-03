@@ -51,8 +51,12 @@ extension ViewController {
         let message = messages [indexPath.row]
         let messageUserName = message.senderDisplayName
         return NSAttributedString(string: messageUserName!)
-        
     }
     
+    func collectionView(_ collectionView: JSQMessagesViewController, layout collectionCiewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAt indexPath: IndexPath!)-> CGFloat {
+        
+        return 15
+        
+    }
 }
 
