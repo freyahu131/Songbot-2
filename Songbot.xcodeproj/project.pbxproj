@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04BA4F681F5C3097009A2D7E /* RealmSwiftobject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA4F671F5C3097009A2D7E /* RealmSwiftobject.swift */; };
 		04BE53E71F5B707F0062EDEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE53E61F5B707F0062EDEB /* AppDelegate.swift */; };
 		04BE53E91F5B707F0062EDEB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE53E81F5B707F0062EDEB /* ViewController.swift */; };
 		04BE53EC1F5B707F0062EDEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04BE53EA1F5B707F0062EDEB /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04BA4F671F5C3097009A2D7E /* RealmSwiftobject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmSwiftobject.swift; sourceTree = "<group>"; };
 		04BE53E31F5B707F0062EDEB /* Songbot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Songbot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04BE53E61F5B707F0062EDEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04BE53E81F5B707F0062EDEB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 			children = (
 				04BE53E61F5B707F0062EDEB /* AppDelegate.swift */,
 				04BE53E81F5B707F0062EDEB /* ViewController.swift */,
+				04BA4F671F5C3097009A2D7E /* RealmSwiftobject.swift */,
 				04BE53EA1F5B707F0062EDEB /* Main.storyboard */,
 				04BE53ED1F5B707F0062EDEB /* Assets.xcassets */,
 				04BE53EF1F5B707F0062EDEB /* LaunchScreen.storyboard */,
@@ -226,6 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04BA4F681F5C3097009A2D7E /* RealmSwiftobject.swift in Sources */,
 				04BE53E91F5B707F0062EDEB /* ViewController.swift in Sources */,
 				04BE53E71F5B707F0062EDEB /* AppDelegate.swift in Sources */,
 			);
@@ -395,6 +399,7 @@
 				04BE53F71F5B707F0062EDEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

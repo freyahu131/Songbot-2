@@ -41,9 +41,29 @@ extension ViewController {
         self.senderDisplayName = currentUser.name
     }
 }
+
+extension ViewController{
+    func addMessage(_senderName:String,_senderID:String,senderMessage: String){
+        let message = Message ()
+        message.senderID = senderId
+        message.senderName = _senderName
+        message.sender<essage = senderMessage
+    // write to Realm
+        let realm = try! Realm ()
+        try! realm.write{
+            realm.add(message)
+        }
+    }
+    
+}
+
+
 extension ViewController {
     
   override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
+    let message = JSQMessage (senderId:senderId, displayName:senderDisplayName,text: text)
+        messages.append (message!)
+        finishSendingMessage()
    }
     
    override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAt indexPath: IndexPath!)-> NSAttributedString! {
@@ -59,7 +79,7 @@ extension ViewController {
     override func collectionView(_ collectionView: JSQMessagesCollectionView!,avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource!{
     return nil
     }
-     func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!)-> JSQMessageAvatarImageDataSource!{
+     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!)-> JSQMessageAvatarImageDataSource!{
       
         let bubbleFactory = JSQMessagesBubbleImageFactory()
         let message = messages [indexPath.row]
@@ -69,12 +89,12 @@ extension ViewController {
             return bubbleFactory?.incomingMessagesBubbleImage(with: .blue) as! JSQMessageAvatarImageDataSource
         }
 }
-      func collection(_ collectionView: UICollectionView, numberOfItemSection sectioni: Int)-> Int {
+      override func collection(_ collectionView: UICollectionView, numberOfItemSection sectioni: Int)-> Int {
           return messages.count
     }
     
-       func collectionView (_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt: IndexPath!)-> JSQMessageData!{
-        return messages[indexpath.row]
+       override func collectionView (_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt: IndexPath!)-> JSQMessageData!{
+        return messages[indexPath.row]
         }
 }
 
