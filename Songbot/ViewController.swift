@@ -47,11 +47,12 @@ extension ViewController{
         let message = Message ()
         message.senderID = senderId
         message.senderName = _senderName
-        message.sender<essage = senderMessage
+        message.senderMessage = senderMessage
     // write to Realm
         let realm = try! Realm ()
         try! realm.write{
             realm.add(message)
+        
         }
     }
     
@@ -60,9 +61,13 @@ extension ViewController{
 
 extension ViewController {
     
+    
   override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
+    
+    self.addMessage(_senderName: senderDisplayName, _senderID: senderId, senderMessage: text)
     let message = JSQMessage (senderId:senderId, displayName:senderDisplayName,text: text)
         messages.append (message!)
+    
         finishSendingMessage()
    }
     
