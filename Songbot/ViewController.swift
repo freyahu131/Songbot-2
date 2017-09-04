@@ -71,7 +71,7 @@ extension ViewController {
         finishSendingMessage()
    }
     
-   override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAt indexPath: IndexPath!)-> NSAttributedString! {
+    override    func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAt indexPath: IndexPath!)-> NSAttributedString! {
         
         let message = messages [indexPath.row]
         let messageUserName = message.senderDisplayName
@@ -84,7 +84,7 @@ extension ViewController {
     override func collectionView(_ collectionView: JSQMessagesCollectionView!,avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource!{
     return nil
     }
-     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!)-> JSQMessageAvatarImageDataSource!{
+      func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!)-> JSQMessageAvatarImageDataSource!{
       
         let bubbleFactory = JSQMessagesBubbleImageFactory()
         let message = messages [indexPath.row]
@@ -94,12 +94,12 @@ extension ViewController {
             return bubbleFactory?.incomingMessagesBubbleImage(with: .blue) as! JSQMessageAvatarImageDataSource
         }
 }
-      override func collection(_ collectionView: UICollectionView, numberOfItemSection sectioni: Int)-> Int {
+       func collection(_ collectionView: UICollectionView, numberOfItemSection sectioni: Int)-> Int {
           return messages.count
     }
     
        override func collectionView (_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt: IndexPath!)-> JSQMessageData!{
-        return messages[indexPath.row]
+        return messages[messageDataForItemAt.row]
         }
 }
 
