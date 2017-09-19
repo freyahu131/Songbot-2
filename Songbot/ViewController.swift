@@ -22,12 +22,23 @@ class ViewController: JSQMessagesViewController {
     
     var messages = [JSQMessage] ()
     
+    lazy var outgoingBubbleImageView: JSQMessagesBubbleImage = self.setupOutgoingBubble()
+    lazy var incomingBubbleImageView: JSQMessagesBubbleImage = self.setupIncomingBubble()
     
     let user1 = User (id : "1", name: "Vince")
     let user2 = User (id: "2", name : "bot")
    
     var currentUser: User {
         return user1
+    }
+    private func setupOutgoingBubble() -> JSQMessagesBubbleImage {
+        let bubbleImageFactory = JSQMessagesBubbleImageFactory()
+        return bubbleImageFactory!.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
+    }
+    
+    private func setupIncomingBubble() -> JSQMessagesBubbleImage {
+        let bubbleImageFactory = JSQMessagesBubbleImageFactory()
+        return bubbleImageFactory!.incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
     }
 }
 
@@ -39,7 +50,11 @@ extension ViewController {
         
         self.senderId = currentUser.id
         self.senderDisplayName = currentUser.name
+        
+        collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
+        collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
     }
+    
 }
 
 extension ViewController{
@@ -48,32 +63,32 @@ extension ViewController{
         message.senderID = senderId
         message.senderName = _senderName
         message.senderMessage = senderMessage
-    // write to Realm
+        // write to Realm
         let realm = try! Realm ()
         try! realm.write{
             realm.add(message)
-        
+            
         }
     }
-    
 }
 
 
 extension ViewController {
     
     
-  override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
-    
-    self.addMessage(_senderName: senderDisplayName, _senderID: senderId, senderMessage: text)
-    let message = JSQMessage (senderId:senderId, displayName:senderDisplayName,text: text)
-        messages.append (message!)
-    
-        finishSendingMessage()
-   }
-    
-    override    func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAt indexPath: IndexPath!)-> NSAttributedString! {
+    override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
         
-        let message = messages [indexPath.row]
+        self.addMessage(_senderName: senderDisplayName, _senderID: senderId, senderMessage: text)
+        let message = JSQMessage (senderId:senderId, displayName:senderDisplayName,text: text)
+        messages.append (message!)
+        
+        finishSendingMessage()
+    }
+    
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAt indexPath: IndexPath!)-> NSAttributedString! {
+        // V row
+        let message = messages [indexPath.item]
+        
         let messageUserName = message.senderDisplayName
         return NSAttributedString(string: messageUserName!)
     }
@@ -84,23 +99,26 @@ extension ViewController {
     override func collectionView(_ collectionView: JSQMessagesCollectionView!,avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource!{
     return nil
     }
-      func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!)-> JSQMessageAvatarImageDataSource!{
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!)-> JSQMessageBubbleImageDataSource! {
       
-        let bubbleFactory = JSQMessagesBubbleImageFactory()
-        let message = messages [indexPath.row]
+        
+        // V row
+        let message = messages[indexPath.item]
         if currentUser.id == message.senderId {
-            return bubbleFactory?.outgoingMessagesBubbleImage(with: .green) as! JSQMessageAvatarImageDataSource
+            return outgoingBubbleImageView
         } else {
-            return bubbleFactory?.incomingMessagesBubbleImage(with: .blue) as! JSQMessageAvatarImageDataSource
+            return incomingBubbleImageView
         }
 }
-       func collection(_ collectionView: UICollectionView, numberOfItemSection sectioni: Int)-> Int {
-          return messages.count
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
+        return messages[indexPath.item]
     }
     
-       override func collectionView (_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt: IndexPath!)-> JSQMessageData!{
-        return messages[messageDataForItemAt.row]
-        }
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return messages.count
+    }
+    
+   
 }
 
 
